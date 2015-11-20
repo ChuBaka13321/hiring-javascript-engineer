@@ -9,13 +9,23 @@
     <p>Mr. Crazy Banker asked us to "improve" the UI for clients, so whenever you get out of any text field, it prompts for confirmation of its value.</p>
     <p>On cancel, the field is emptied. Otherwise the value remains.</p>
     <form>
-        <p>Name: <input type="text"></p>
-        <p>Last Name: <input type="text"></p>
+        <p>Name: <input type="text" id="first" onblur="valid('first')"></p>
+        <p>Last Name: <input type="text" id="last" onblur="valid('last')"></p>
     </form>
     <h2>Pluses:</h2>
     <ul>
         <li>No jQuery or any other 3rd party libs.</li>
         <li>Works for dynamically added input elements.</li>
     </ul>
+    <script>
+      function valid(which){ //which pertains to either first or last
+        var text = document.getElementById(which);
+        var checker = confirm("Is " + text.value + " your " + which + " name?"); //confirmation box
+        if(!checker) { //if client presses "cancel" button, checker becomes false, otherwise do nothing
+            text.value = "";
+        }
+      }
+
+    </script>
 </body>
 </html>
