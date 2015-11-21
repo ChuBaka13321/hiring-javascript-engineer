@@ -20,7 +20,12 @@
     <script>
       function valid(which){ //which pertains to either first or last
         var text = document.getElementById(which);
-        var checker = confirm("Is " + text.value + " your " + which + " name?"); //confirmation box
+        var checker;
+        if(!text.value) { //If field is left blank to begin with, ask user to enter text
+          checker = confirm("Please fill out the field.")
+        } else {
+          checker = confirm("Is " + text.value + " your " + which + " name?"); //confirmation box
+        }
         if(!checker) { //if client presses "cancel" button, checker becomes false, otherwise do nothing
             text.value = "";
         }
