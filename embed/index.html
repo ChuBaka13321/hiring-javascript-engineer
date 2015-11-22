@@ -12,6 +12,9 @@
         <li>It will display an always-visible button to remove all the squares.</li>
         <li>When used on this page, three squares will show up.</li>
     </ul>
+
+    <button id = "toggle" onclick="toggleButton()">Toggle Censorship</button>
+
     <div style="text-align:center">
         <img src="http://placehold.it/350x150">
     </div>
@@ -34,43 +37,62 @@
         <li>It works on all browsers, back to IE7 and with mobile browsers too.</li>
     </ul>
     <script>
-    
-    //Forloop through imgs, apply red square to all.
-    window.onload = function() {
-      var imagesArray = document.getElementsByTagName('img');
-      // console.dir(test[0].clientWidth) 
+      //Forloop through imgs, apply red square to all.
+      window.onload = function() {
+        var imagesArray = document.getElementsByTagName('img');
+        // console.dir(test[0].clientWidth) 
 
-      for(var i = 0; i < imagesArray.length; i++) {
+        for(var i = 0; i < imagesArray.length; i++) {
 
-        var width = imagesArray[i].clientWidth;
-        var height = imagesArray[i].clientHeight;
-        var xLocation = imagesArray[i].x;
-        var yLocation = imagesArray[i].y;
+          var width = imagesArray[i].clientWidth;
+          var height = imagesArray[i].clientHeight;
+          var xLocation = imagesArray[i].x;
+          var yLocation = imagesArray[i].y;
 
-        var redBox = document.createElement('canvas');
-        document.body.appendChild(redBox);
-        var redBoxCtx = redBox.getContext("2d");
-        redBox.style.position = 'absolute';
-        redBox.style.left = xLocation + "px";
-        redBox.style.top = yLocation + "px";
-        redBox.style.width = width + "px";
-        redBox.style.height = height + "px";
-        // redBoxCtx.globalCompositeOperation="source-over"
-        redBoxCtx.rect(0,0, redBox.width, redBox.height)
-        redBoxCtx.fillStyle = "red";
-        redBoxCtx.fill();
-        // redBox.getContext("2d").fillStyle = "red";
-        // redBox.getContext("2d").fill();
+          var redBox = document.createElement('canvas');
+          document.body.appendChild(redBox);
+          var redBoxCtx = redBox.getContext("2d");
+          redBox.style.position = 'absolute';
+          redBox.style.left = xLocation + "px";
+          redBox.style.top = yLocation + "px";
+          redBox.style.width = width + "px";
+          redBox.style.height = height + "px";
+          // redBoxCtx.globalCompositeOperation="source-over"
+          redBoxCtx.rect(0,0, redBox.width, redBox.height)
+          redBoxCtx.fillStyle = "red";
+          redBoxCtx.fill();
+          // redBox.getContext("2d").fillStyle = "red";
+          // redBox.getContext("2d").fill();
 
-        // console.log(imagesArray[i].getContext("2d"))
-        console.log(width)
-        console.log(redBox.style.width)
-        // console.log(i, imagesArray[i].clientHeight)
-        // console.log(i, imagesArray[i].x)
-        // console.log(i, imagesArray[i].y)
-      } 
+          // console.log(imagesArray[i].getContext("2d"))
+          console.log(width)
+          console.log(redBox.style.width)
+          // console.log(i, imagesArray[i].clientHeight)
+          // console.log(i, imagesArray[i].x)
+          // console.log(i, imagesArray[i].y)
+        } 
+      }
 
-    }
+      var toggleButton = function() {
+        var boxes = document.getElementsByTagName('canvas')
+
+        for(var i = 0; i < boxes.length; i++) {
+          var boxContent = boxes[i].getContext("2d");
+          
+          console.dir(boxContent)
+          // if(boxContent.fillStyle === "#ff0000") {
+          if(boxContent.canvas.style.opacity === "") {
+            boxContent.canvas.style.opacity = 0;
+            // boxContent.clearRect(0, 0, boxes[i].width, boxes[i].height);
+          } else {
+            boxContent.canvas.style.opacity = "";
+            // boxContent.rect(0, 0, boxes[i].width, boxes[i].height);
+            // boxContent.fillStyle = "#ff0000";
+            // boxContent.fill();
+            // console.log("yo")
+          }
+        }
+      }
     
     </script>
 </body>
