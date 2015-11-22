@@ -35,25 +35,12 @@
       document.getElementById("test").onsubmit = function () {
         var textForm = document.getElementById("textField").value;
         
-        var node = document.createElement("li");                          // Creates an <li> node
-        var textnode = document.createTextNode(textForm);                  // Creates a text node
-        node.appendChild(textnode);
-        innerFrame.body.appendChild(node);
-        return false;
+        var node = document.createElement("li");                         // Creates an <li> node
+        var textnode = document.createTextNode(textForm);                // Creates a text node
+        node.appendChild(textnode);                                      // Append textForm to <li> node
+        innerFrame.body.appendChild(node);                               // Append <li> node to body of iFrame DOM
+        return false;                                                    // Originally tried using a button
       }
-
-      // var iFrameSubmit = function(){
-      //   //when submit is clicked, send text from #textField into iFrame.
-        // var textForm = document.getElementById("textField").value;
-  
-        // var node = document.createElement("li");                          // Creates an <li> node
-        // var textnode = document.createTextNode(textForm);                  // Creates a text node
-        // node.appendChild(textnode);
-        // innerFrame.body.appendChild(node);
-        
-      // }
-
-
 
     </script>
 </body>
