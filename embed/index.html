@@ -33,5 +33,45 @@
         <li>It works with dynamically added images.</li>
         <li>It works on all browsers, back to IE7 and with mobile browsers too.</li>
     </ul>
+    <script>
+    
+    //Forloop through imgs, apply red square to all.
+    window.onload = function() {
+      var imagesArray = document.getElementsByTagName('img');
+      // console.dir(test[0].clientWidth) 
+
+      for(var i = 0; i < imagesArray.length; i++) {
+
+        var width = imagesArray[i].clientWidth;
+        var height = imagesArray[i].clientHeight;
+        var xLocation = imagesArray[i].x;
+        var yLocation = imagesArray[i].y;
+
+        var redBox = document.createElement('canvas');
+        document.body.appendChild(redBox);
+        var redBoxCtx = redBox.getContext("2d");
+        redBox.style.position = 'absolute';
+        redBox.style.left = xLocation + "px";
+        redBox.style.top = yLocation + "px";
+        redBox.style.width = width + "px";
+        redBox.style.height = height + "px";
+        // redBoxCtx.globalCompositeOperation="source-over"
+        redBoxCtx.rect(0,0, redBox.width, redBox.height)
+        redBoxCtx.fillStyle = "red";
+        redBoxCtx.fill();
+        // redBox.getContext("2d").fillStyle = "red";
+        // redBox.getContext("2d").fill();
+
+        // console.log(imagesArray[i].getContext("2d"))
+        console.log(width)
+        console.log(redBox.style.width)
+        // console.log(i, imagesArray[i].clientHeight)
+        // console.log(i, imagesArray[i].x)
+        // console.log(i, imagesArray[i].y)
+      } 
+
+    }
+    
+    </script>
 </body>
 </html>
