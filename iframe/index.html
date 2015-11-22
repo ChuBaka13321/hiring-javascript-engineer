@@ -7,11 +7,12 @@
 <body>
     <h1>About Iframes</h1>
     <p>One of your clients requires that everything he types and submits into a form is transfered into an iframe, to avoid the NSA.</p>
-    <form>
-        <input type="text" value="Send me to the iframe!">
+    <form id="test" onsubmit = "iFrameSubmit()">
+        <input type="text" id="textField" value="Send me to the iframe!">
+        <!-- <button type="button" onclick="iFrameSubmit()">Submit</button> -->
         <input type="submit">
     </form>
-    <iframe src="about:blank" frameborder="1" width="600" height="100"></iframe>
+    <iframe id="theFrame" src="about:blank" frameborder="1" width="600" height="100"></iframe>
     <h2>Rules</h2>
     <ul>
         <li>No server side processing</li>
@@ -22,5 +23,38 @@
         <li>Explain your technique</li>
         <li>No extra files</li>
     </ul>
+
+    <script>
+      //can't use extra documents
+      // var frame = document.getElementById("theFrame").src;           // Was testing the URL.
+      // console.log(frame)
+
+      var frame = document.getElementById("theFrame")             
+      var innerFrame = (frame.contentDocument || frame.contentWindow);  //Frame contents
+      
+      document.getElementById("test").onsubmit = function () {
+        var textForm = document.getElementById("textField").value;
+        
+        var node = document.createElement("li");                          // Creates an <li> node
+        var textnode = document.createTextNode(textForm);                  // Creates a text node
+        node.appendChild(textnode);
+        innerFrame.body.appendChild(node);
+        return false;
+      }
+
+      // var iFrameSubmit = function(){
+      //   //when submit is clicked, send text from #textField into iFrame.
+        // var textForm = document.getElementById("textField").value;
+  
+        // var node = document.createElement("li");                          // Creates an <li> node
+        // var textnode = document.createTextNode(textForm);                  // Creates a text node
+        // node.appendChild(textnode);
+        // innerFrame.body.appendChild(node);
+        
+      // }
+
+
+
+    </script>
 </body>
 </html>
