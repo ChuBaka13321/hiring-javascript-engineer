@@ -8,30 +8,79 @@
     <h1>Quiz</h1>
     <ol>
         <li>Name three people that you follow, admire or recognize from the JS field</li>
+        <!-- Not exactly familiar with a lot of people but I was present for a talk by Laurie Voss, CTO of NPM, very interesting and inspiring. -->
         <li>What's the name of the standard backing JS implementations?</li>
+        <!-- Is this pertaining to ECMA 5? -->
         <li>Name three major (old, current or new) JS implementations.</li>
+        <!-- Assuming previous answer was correct, ECMA 6 is upcoming, Google's V8, and The Rhino engine.  (Found on MDN) -->
         <li>Name four websites that you use constanly while web developing.</li>
-        <!-- Stack Overflow, JavaScript MDN,  -->
+        <!-- Stack Overflow, JavaScript MDN, Repl.it, W3Schools(sparingly) -->
         <li>What is minification and why we should use it? Do you use it? How?</li>
         <!-- The process of removing unnecessary characters from source code without changing functionality. It "minifies" the amount of data that needs to be transferred. I've had some experience with it in some past applications.-->
         <li>What is the DOM? And the BOM? What's the difference? Give us a one-line example of using each one.</li>
-        <!-- Document Object Model. Browser Object Model(not familiar with this term up until now). -->
+        <!-- Document Object Model. Browser Object Model(not familiar with this term up until now). 
+        var example = document.getElementById("Example")-->
 
         <li>Why is HTML5shiv important on some browsers?</li>
+        <!-- Perhaps because some people still use older versions of Internet Explorer. -->
+
         <li>How many ways to communicate between two different domain pages do you know? (client-side, of course)</li>
+        <!-- JSONP callback? -->
+
         <li>Is <em>document.write</em> good or bad? When its good? When its bad?</li>
+        <!-- From what I understand, it seems like it can easily be misused. Might be good when writing something less complex. Bad for when you don't know how to use it :) .-->
+
         <li>What do you understand for self-invoking function? Do you use them? Why?</li>
+        <!-- Minimum code, encapsulation, can be passed into another function as a parameter. I haven't had too much experience with them other than in small experimental practice. -->
+
         <li>Do you use JSLint or JSHint? What about strict mode? Why?</li>
+        <!-- Every now and then, but have been self and peer-critiquing my code.  -->
+
+
         <li>What do you know about memory leaks?</li>
+        <!-- Not much, but sounds like a bad case of memory allocation in a program. -->
+
         <li>Have you heard of the "Repainting" problem on the browser? Tell us about it.</li>
+        <!-- Not familiar with the term/problem. -->
+
         <li>Write the best implementation of "blackBox" you can think of:
 <pre>
     blackBox('GumGum') === 'GumGum'
     blackBox('GumGum','Test') === 'GumGum-Test:GumGum-Test'
     blackBox('GumGum','Test','Join Us') === "GumGum-Test-Join Us!:GumGum-Test-Join Us!:GumGum-Test-Join Us!"
 </pre>
+    <!--function blackBox(a, b, c){
+          var argObj = arguments;
+          var copies = argObj.length;
+          var initial = "";
+          var result = "";
+          if(copies === 1) {
+              initial = a;
+          } else if(copies === 2) {
+              initial = a + "-" + b
+          } else {
+              initial = a + "-" + b + "-" + c + "!"
+          }
+          
+          function multiples(word, number){
+            for(var j = 0; j < number; j++) {
+                if(j === 0) {
+                  result += initial;   
+                } else {
+                  result += ":" + initial;
+                }
+                
+            }
+          }
+          
+          multiples(initial, copies)
+          return result;
+        } -->
+        
+
         </li>
         <li>What are you daily basis tools when coding and releasing your code?</li>
+        <!-- Sublime Text, Repl.it, iTerm(Terminal), Chrome Developer Tools -->
     </ol>
     <h2>Extras</h2>
     <ol>
