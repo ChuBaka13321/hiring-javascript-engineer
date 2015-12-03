@@ -24,11 +24,11 @@ benchmark('fib(40)', function () {
 });
 
 benchmark('1st fibMemoized(40) execution', function () {
-    return fibMemoized(10, 10000, 40);
+    return fibMemoized(4000000000);
 });
 
 benchmark('2nd fibMemoized(40) execution', function () {
-    return fibMemoized(10000, 10000, 40);
+    return fibMemoized(4000000000);
 });
 
 benchmark('1st sumMemoized execution', function () {

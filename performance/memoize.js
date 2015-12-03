@@ -14,13 +14,12 @@
 
 
 // Multiple parameters, like, lets suppose you want to change fib to sumAll, and sumAll accepts N params, sumAll(1,2,3) = 6, sumAll(5,1,0) = 6 too.
-//note: try sorting params as they come in to get the same order. ex: (4,5) & (5,4) --> (4,5) & (4,5)
+//note to self: try sorting params as they come in to get the same order. ex: (4,5) & (5,4) --> (4,5) & (4,5)
 
 var results = {};
-// The object where the key/values are stored after being run to save on memory. Instead of running the fib recursion function again, ideally we want to store the values, so if we've already done fibMemoized(40) once. We bypass redoing the function and just access it via the key/value from results object and return that.
+
 
 module.exports = function (fn) {
-    //fn represents the function fib() being passed in as a parameter to memoize(fn).
 
     return function () {
         var argArray = [];
@@ -32,8 +31,6 @@ module.exports = function (fn) {
           results[argArray.toString()] = fn.apply(this, argArray)
         }
         return results[argArray.toString()]
-
-        // return results[param] || (results[param] = fn.apply(this, arguments));
 
     };
 };
