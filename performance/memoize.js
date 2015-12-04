@@ -22,15 +22,10 @@ var results = {};
 module.exports = function (fn) {
 
     return function () {
-        var argArray = [];
-        for (var i = 0; i < arguments.length; i++) {
-          argArray.push(arguments[i])
-        };
-        argArray.sort()
-        if(!(argArray.toString() in results)) {
-          results[argArray.toString()] = fn.apply(this, argArray)
-        }
-        return results[argArray.toString()]
+        //since arguments is an Object, trying Object.keys() 
+        var argString = Object.keys(arguments).toString();
+
+        return results[argString] || (results[argString] = fn.apply(this, arguments))
 
     };
 };

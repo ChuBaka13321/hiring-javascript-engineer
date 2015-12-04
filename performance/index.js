@@ -38,7 +38,7 @@ benchmark('fib(40)', function () {
 });
 
 // benchmark('1st fibMemoized(1000) execution', function () {
-//     return fibMemoized(40000000);
+//     return fibMemoized(1000);
 // });
 
 // benchmark('2nd fibMemoized(1000) execution', function () {
