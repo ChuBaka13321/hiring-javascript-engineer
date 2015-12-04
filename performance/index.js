@@ -37,13 +37,13 @@ benchmark('fib(40)', function () {
     return fib(7);
 });
 
-// benchmark('1st fibMemoized(1000) execution', function () {
-//     return fibMemoized(1000);
-// });
+benchmark('1st fibMemoized(1000) execution', function () {
+    return fibMemoized(1000);
+});
 
-// benchmark('2nd fibMemoized(1000) execution', function () {
-//     return fibMemoized(40);
-// });
+benchmark('2nd fibMemoized(1000) execution', function () {
+    return fibMemoized(1000);
+});
 
 // benchmark('1st sumMemoized execution', function () {
 //     return sumMemoized(1, 3, 5);
