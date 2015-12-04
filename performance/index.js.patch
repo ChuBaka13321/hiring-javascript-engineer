@@ -1,0 +1,29 @@
+diff --git a/performance/index.js b/performance/index.js
+index 3e55a03..af7248b 100644
+--- a/performance/index.js
++++ b/performance/index.js
+@@ -15,10 +15,23 @@ var sumAll = function(){
+         sum += arguments[i];
+     }
+     return sum
+-}
++};
+ 
+ var sumMemoized = memoize(sumAll);
+ 
++var paramsTest = function (a,b,c,d,e) {
++        return [a,b,c,d,e].join(' - ');
++    },
++    paramsTestMemo = memoize(paramsTest);
++
++benchmark('paramsTest: 5, 4, 3, 2, 1', function () {
++    return paramsTest(5, 4, 3, 2, 1);
++});
++
++benchmark('paramsTestMemo: 5, 4, 3, 2, 1', function () {
++    return paramsTestMemo(5, 4, 3, 2, 1);
++});
++
+ benchmark('fib(40)', function () {
+     return fib(40);
+ });
